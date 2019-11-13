@@ -8,8 +8,8 @@
 3. Create and link mysql to your app:  
   `dokku mysql:create <mysql-name>`  
   `dokku mysql:link <mysql-name> <app-name>`
-4. Set env `APP_KEY` to app:  
-  `dokku config:set <app-name> APP_KEY=SomeRandomStringWith32Characters`
+4. Set env `APP_KEY` and `APP_URL` to app:  
+  `dokku config:set <app-name> APP_KEY=SomeRandomStringWith32Characters APP_URL=https://containerdomain.example`
 4. Push to dokku:  
   `git push dokku master`
 5. Access terminal and run command to increase max upload size (nginx default is 1mb). If you use a different size, edit `php.ini` too:
