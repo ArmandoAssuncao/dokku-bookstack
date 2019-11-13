@@ -97,7 +97,7 @@ else
     MAIL_ENCRYPTION=${MAIL_ENCRYPTION:-null}
     # URL used for social login redirects, NO TRAILING SLASH
 EOF
-  sed -ie "s/single/errorlog/g" config/app.php
+  sed -ie "s/single/errorlog/g" "app/Config/app.php"
 fi
 
 echoerr wait-for-db: waiting for ${DB_HOST_NAME}:${DB_PORT}
