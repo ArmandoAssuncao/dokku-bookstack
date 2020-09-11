@@ -10,17 +10,9 @@
   `dokku mysql:link <mysql-name> <app-name>`
 4. Set env `APP_KEY` and `APP_URL` to app:  
   `dokku config:set <app-name> APP_KEY=SomeRandomStringWith32Characters APP_URL=https://containerdomain.example`
-4. Push to dokku:  
+5. Install and use plugins: [plugin timeout](https://github.com/danielslee/dokku-nginx-proxy-timeout), [plugin max upload](https://github.com/Zeilenwerk/dokku-nginx-max-upload-size)  
+6. Push to dokku:  
   `git push dokku master`
-5. Access terminal and run command to increase max upload size (nginx default is 1mb). If you use a different size, edit `php.ini` too:
-  ```
-  APP_NAME=<app-name>
-  SIZE=100m
-  sudo mkdir /home/dokku/${APP_NAME}/nginx.conf.d/
-  echo -e 'client_max_body_size '${SIZE}';\nclient_body_timeout 300s;' | sudo tee -a /home/dokku/${APP_NAME}/nginx.conf.d/upload.conf
-  sudo chown -R dokku:dokku /home/dokku/${APP_NAME}/nginx.conf.d
-  sudo service nginx reload
-  ```
 7. gg!
 
 #### Using S3 to storage images and files:
